@@ -1,0 +1,23 @@
+{
+  "name": "project-movie",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mkdirp": "^1.0.4",
+    "multer": "^1.4.3",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "sequelize-cli": "^6.2.0"
+  }
+}
