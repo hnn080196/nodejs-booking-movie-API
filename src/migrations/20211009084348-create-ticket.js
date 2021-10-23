@@ -24,6 +24,9 @@ module.exports = {
           key: "id",
         },
       },
+      // movieId: {
+      //   type: Sequelize.INTEGER,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

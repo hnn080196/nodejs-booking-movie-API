@@ -7,7 +7,7 @@ const checkExist = (Model) => async (req, res, next) => {
       next();
     } else {
       res.status(404).send({
-        message: "User không tồn tại",
+        message: "Model không tồn tại",
       });
     }
   } catch (error) {

@@ -24,7 +24,7 @@ const getInfoMovie = async (req, res) => {
     });
   }
 };
-//
+
 const addNewMovie = async (req, res) => {
   try {
     const { file } = req;
@@ -49,31 +49,31 @@ const updateMovie = async (req, res) => {
   try {
     const { id } = req.params;
     const { file } = req;
-    const urlPoster = `http://localhost:9000/${file.path}`;
-    if (!file) {
-      const error = new Error("Vui Lòng Chọn File");
-      error.httpStatusCode = 400;
-      return next(error);
+    if (file) {
+      const urlPoster = `http://localhost:9000/${file.path}`;
+      req.body.poster = urlPoster;
     }
-    req.body.poster = urlPoster;
-    const data = req.body;
-    await User.update(data, {
-      where: {
-        id,
-      },
-    });
-    res.status(200).send("update thành công");
+    const updates = Object.keys(req.body);
+    const movieUpdate = await Movie.findByPk(id);
+    updates.forEach((update) => (movieUpdate[update] = req.body[update]));
+    await movieUpdate.save();
+    res.status(200).send(movieUpdate);
   } catch (error) {
     res.status(500).send({
       message: "Lỗi Server",
     });
   }
 };
-const deleteMovie = (req, res) => {
+const deleteMovie = async (req, res) => {
   try {
     const { id } = req.params;
-
-    res.send("deleteMovie");
+    const { detailInfo } = req;
+    await Movie.destroy({
+      where: {
+        id,
+      },
+    });
+    res.status(200).send(detailInfo);
   } catch (error) {
     res.status(500).send({
       message: "Lỗi Server",
