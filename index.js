@@ -1,25 +1,11 @@
 const express = require('express');
 const path = require('path');
 const { rootRouter } = require('./src/routers/root.routers');
-var exphbs = require('express-handlebars');
 const app = express();
 
 // static file
 const publicPathDirectory = path.join(__dirname, './public');
 app.use('/public', express.static(publicPathDirectory));
-
-// setting express handlerbar
-app.engine(
-    'hbs',
-    exphbs({
-        extname: '.hbs',
-        helpers: {
-            sum: (a, b) => a + b,
-        },
-    })
-);
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources', 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

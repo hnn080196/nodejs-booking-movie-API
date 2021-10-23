@@ -1,28 +1,20 @@
-const express = require("express");
+const express = require('express');
+const userController = require('../controllers/user.controller');
 const {
-  getAllUser,
-  getUserInfo,
-  addNewUser,
-  updateUser,
-  removeUser,
-  uploadAvatar,
-  getMovieByUser,
-} = require("../controllers/user.controller");
+    authenticate,
+    authorize,
+} = require('../middlewares/auth/verify-token.middlewares');
+const { logsUser } = require('../middlewares/logs/logs-user.middlewares');
 const {
-  authenticate,
-  authorize,
-} = require("../middlewares/auth/verify-token.middlewares");
-const { logsUser } = require("../middlewares/logs/logs-user.middlewares");
+    uploadImageSingle,
+} = require('../middlewares/upload/upload-image.middlewares');
 const {
-  uploadImageSingle,
-} = require("../middlewares/upload/upload-image.middlewares");
+    checkEmptyUser,
+} = require('../middlewares/validations/check-empty.middleware');
 const {
-  checkEmptyUser,
-} = require("../middlewares/validations/check-empty.middleware");
-const {
-  checkExist,
-} = require("../middlewares/validations/check-exist.middlewares");
-const { User } = require("../models");
+    checkExist,
+} = require('../middlewares/validations/check-exist.middlewares');
+const { User } = require('../models');
 
 /**
  * tạo api quản lý người dùng ( REST APIS )
@@ -36,28 +28,32 @@ const { User } = require("../models");
 const userRouter = express.Router();
 
 userRouter.post(
-  "/upload-avatar",
-  authenticate,
-  uploadImageSingle("avatar"),
-  uploadAvatar
+    '/upload-avatar',
+    authenticate,
+    uploadImageSingle('avatar'),
+    userController.uploadAvatar
 );
 
-userRouter.get("/", logsUser, getAllUser);
+userRouter.get('/', logsUser, userController.getAll);
 
-userRouter.get("/:id", checkExist(User), getUserInfo);
+userRouter.get('/:id', checkExist(User), userController.getInfo);
 
-userRouter.post("/", checkEmptyUser, addNewUser);
+userRouter.post('/', checkEmptyUser, userController.addNew);
 
-userRouter.put("/:id", checkExist(User), updateUser);
+userRouter.put('/:id', checkExist(User), userController.update);
 
 userRouter.delete(
-  "/:id",
-  authenticate,
-  authorize(["admin", "superadmin"]),
-  checkExist(User),
-  removeUser
+    '/:id',
+    authenticate,
+    authorize(['admin', 'superadmin']),
+    checkExist(User),
+    userController.remove
 );
-userRouter.get("/movie-by-user/:id", authenticate, getMovieByUser);
+userRouter.get(
+    '/movie-by-user/:id',
+    authenticate,
+    userController.getMovieByUser
+);
 module.exports = {
-  userRouter,
+    userRouter,
 };
