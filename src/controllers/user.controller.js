@@ -6,8 +6,24 @@ class UserController {
     // get all user (done)
     getAll = async (req, res) => {
         try {
-            const userList = await User.findAll();
+            const userList = await User.findAll({
+                where: { deletedAt: null },
+            });
             res.status(200).send(userList);
+        } catch (error) {
+            res.status(500).send({
+                message: 'Lỗi Server',
+                error,
+            });
+        }
+    };
+    getDeleteList = async (req, res) => {
+        try {
+            const deletedUserList = await User.findAll({
+                where: { deletedAt: { ne: null } },
+                paranoid: false,
+            });
+            res.status(200).send(deletedUserList);
         } catch (error) {
             res.status(500).send({
                 message: 'Lỗi Server',
@@ -71,7 +87,25 @@ class UserController {
             });
         }
     };
-    remove = async (req, res) => {
+    softDelete = async (req, res) => {
+        try {
+            const { id } = req.params;
+            // const { detailInfo } = req;
+            await User.destroy({
+                where: {
+                    id,
+                },
+            });
+            // res.status(200).send(detailInfo);
+            res.send('xoa thanh cong');
+        } catch (error) {
+            res.status(500).send({
+                message: 'Lỗi Server',
+                error,
+            });
+        }
+    };
+    forceDelete = async (req, res) => {
         try {
             const { id } = req.params;
             const { detailInfo } = req;
@@ -79,6 +113,7 @@ class UserController {
                 where: {
                     id,
                 },
+                force: true,
             });
             res.status(200).send(detailInfo);
         } catch (error) {

@@ -34,20 +34,27 @@ userRouter.post(
     userController.uploadAvatar
 );
 
-userRouter.get('/', logsUser, userController.getAll);
+userRouter.get('/get-delete-list', logsUser, userController.getDeleteList);
+userRouter.get('/get-all-user', logsUser, userController.getAll);
 
-userRouter.get('/:id', checkExist(User), userController.getInfo);
+userRouter.get('/get-info/:id', checkExist(User), userController.getInfo);
 
-userRouter.post('/', checkEmptyUser, userController.addNew);
+userRouter.post('/add-new', checkEmptyUser, userController.addNew);
 
-userRouter.put('/:id', checkExist(User), userController.update);
+userRouter.put('/update/:id', checkExist(User), userController.update);
 
 userRouter.delete(
-    '/:id',
+    '/soft-delete/:id',
     authenticate,
     authorize(['admin', 'superadmin']),
     checkExist(User),
-    userController.remove
+    userController.softDelete
+);
+userRouter.delete(
+    '/force-delete/:id',
+    authenticate,
+    authorize(['superadmin']),
+    userController.forceDelete
 );
 userRouter.get(
     '/movie-by-user/:id',
