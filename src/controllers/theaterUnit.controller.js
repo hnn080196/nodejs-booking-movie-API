@@ -1,45 +1,45 @@
 const Op = require('sequelize').Op;
 const { ErrorHandler } = require('../helpers/error');
-const { Cinema, Showtime, TheaterUnit, Theater } = require('../models');
+const { TheaterUnit, Theater, Showtime } = require('../models');
 
-class CinemaController {
+class TheaterUnitController {
     getAll = async (req, res, next) => {
         try {
             if (req.query.hasOwnProperty('_search')) {
                 const { keyWord } = req.query;
-                const searchList = await Cinema.findAll({
+                const searchList = await TheaterUnit.findAll({
                     where: {
-                        cinemaName: { [Op.like]: '%' + keyWord + '%' },
+                        theaterUnitName: { [Op.like]: '%' + keyWord + '%' },
                         deletedAt: null,
                     },
                 });
                 res.status(200).json(searchList);
             }
-            const cinemaList = await Cinema.findAll({
+            const theaterUnitList = await TheaterUnit.findAll({
                 where: { deletedAt: null },
             });
-            res.status(200).json(cinemaList);
+            res.status(200).json(theaterUnitList);
         } catch (error) {
             next(error);
         }
     };
-    getDeletedCinema = async (req, res, next) => {
+    getDeletedList = async (req, res, next) => {
         try {
             if (req.query.hasOwnProperty('_search')) {
                 const { keyWord } = req.query;
-                const searchList = await Cinema.findAll({
+                const searchList = await TheaterUnit.findAll({
                     where: {
-                        cinemaName: { [Op.like]: '%' + keyWord + '%' },
+                        theaterUnitName: { [Op.like]: '%' + keyWord + '%' },
                         deletedAt: { [Op.ne]: null },
                     },
                 });
                 res.status(200).json(searchList);
             }
-            const cinemaDeletedList = await Cinema.findAll({
+            const theaterUnitDeletedList = await TheaterUnit.findAll({
                 where: { deletedAt: { [Op.ne]: null } },
                 paranoid: false,
             });
-            res.status(200).json(cinemaDeletedList);
+            res.status(200).json(theaterUnitDeletedList);
         } catch (error) {
             next(error);
         }
@@ -47,23 +47,26 @@ class CinemaController {
     getInfo = async (req, res, next) => {
         try {
             const { id } = req.params;
-            const cinemaInfo = await Cinema.findByPk(id);
-            res.status(200).json(cinemaInfo);
+            const theaterUnitInfo = await TheaterUnit.findByPk(id);
+            res.status(200).json(theaterUnitInfo);
         } catch (error) {
             next(error);
         }
     };
-
-    addNewCinema = async (req, res, next) => {
+    addNew = async (req, res, next) => {
         try {
-            const { file } = req;
-            if (!file) {
-                throw new ErrorHandler(400, 'Vui Lòng Chọn File');
+            const { theaterSlug } = req.params;
+            const findTheater = await Theater.findOne({
+                where: {
+                    slug: theaterSlug,
+                },
+            });
+            if (!findTheater) {
+                throw new ErrorHandler(404, 'Hệ Thống Rạp Không Tồn Tại');
             }
-            const urlCinemaLogo = `http://localhost:9000/${file.path}`;
-            req.body.cinemaLogo = urlCinemaLogo;
-            const newCinema = await Cinema.create(req.body);
-            res.status(201).send(newCinema);
+            req.body.theaterId = findTheater.id;
+            await TheaterUnit.create(req.body);
+            res.status(200).send('Tạo Cụm Rạp Thành Công');
         } catch (error) {
             next(error);
         }
@@ -71,20 +74,24 @@ class CinemaController {
     update = async (req, res, next) => {
         try {
             const { id } = req.params;
-            const { file } = req;
-            if (file) {
-                const urlCinemaLogo = `http://localhost:9000/${file.path}`;
-                req.body.cinemaLogo = urlCinemaLogo;
+            if (req.body.theaterId) {
+                throw new ErrorHandler(
+                    400,
+                    'Bạn Không được thay đổi trường này.'
+                );
             }
             const updates = Object.keys(req.body);
-            const cinemaUpdate = await Cinema.findByPk(id);
+            const theaterUnitUpdate = await TheaterUnit.findByPk(id);
             updates.forEach((update) => {
-                if (!(update in cinemaUpdate)) {
-                    throw new ErrorHandler(400, `Không có trường ${update}`);
+                if (!(update in theaterUnitUpdate)) {
+                    throw new ErrorHandler(
+                        400,
+                        `trường ${update} không tồn tại`
+                    );
                 }
-                cinemaUpdate[update] = req.body[update];
+                theaterUnitUpdate[update] = req.body[update];
             });
-            await cinemaUpdate.save();
+            await theaterUnitUpdate.save();
             res.status(200).json('Cập nhật Thành công');
         } catch (error) {
             next(error);
@@ -93,9 +100,18 @@ class CinemaController {
     softDelete = async (req, res, next) => {
         try {
             const { id } = req.params;
-
-            //delete Cinema
-            await Cinema.destroy({
+            const findShowtime = Showtime.findOne({
+                where: {
+                    theaterUnitId: id,
+                },
+            });
+            if (findShowtime) {
+                throw new ErrorHandler(
+                    400,
+                    'Rạp Đã Có Lịch Chiếu Không Thể Xóa!'
+                );
+            }
+            await TheaterUnit.destroy({
                 where: { id },
             });
             res.status(200).send({ message: 'Đã Xóa' });
@@ -106,7 +122,7 @@ class CinemaController {
     forceDelete = async (req, res, next) => {
         try {
             const { id } = req.params;
-            await Cinema.destroy({
+            await TheaterUnit.destroy({
                 where: { id },
                 force: true,
             });
@@ -115,14 +131,14 @@ class CinemaController {
             next(new ErrorHandler(500, 'Lỗi Máy Chủ'));
         }
     };
-    restoreCinema = async (req, res, next) => {
+    restore = async (req, res, next) => {
         try {
             const { id } = req.params;
-            await Cinema.restore({
+            await TheaterUnit.restore({
                 where: { id },
             });
             res.status(200).send({
-                message: 'Khôi phục Cinema thành công!',
+                message: 'Khôi phục Rạp thành công!',
             });
         } catch (error) {
             next(new ErrorHandler(500, 'Lỗi Máy Chủ'));
@@ -130,4 +146,4 @@ class CinemaController {
     };
 }
 
-module.exports = new CinemaController();
+module.exports = new TheaterUnitController();

@@ -1,35 +1,29 @@
 'use strict';
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('Users', {
+        await queryInterface.createTable('Theaters', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            name: {
+            cinemaId: {
+                type: Sequelize.INTEGER,
+                // Liên kết bảng users
+                references: {
+                    model: 'Cinemas',
+                    key: 'id',
+                },
+            },
+            theaterName: {
                 type: Sequelize.STRING,
             },
-            email: {
+            address: {
                 type: Sequelize.STRING,
             },
-            password: {
+            slug: {
                 type: Sequelize.STRING,
-            },
-            phone: {
-                type: Sequelize.STRING,
-            },
-            role: {
-                type: Sequelize.STRING,
-                defaultValue: 'client',
-            },
-            avatar: {
-                type: Sequelize.STRING,
-            },
-            deletedAt: {
-                allowNull: true,
-                type: Sequelize.DATE,
             },
             createdAt: {
                 allowNull: false,
@@ -39,9 +33,13 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE,
             },
+            deletedAt: {
+                allowNull: true,
+                type: Sequelize.DATE,
+            },
         });
     },
     down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Users');
+        await queryInterface.dropTable('Theaters');
     },
 };

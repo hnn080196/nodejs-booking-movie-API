@@ -1,18 +1,31 @@
+const { ErrorHandler } = require('../../helpers/error');
+
 const checkExist = (Model) => async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const detail = await Model.findByPk(id);
-    if (detail) {
-      req.detailInfo = detail;
-      next();
-    } else {
-      res.status(404).send({
-        message: "Model không tồn tại",
-      });
+    try {
+        const { id } = req.params;
+        const detail = await Model.findByPk(id);
+        if (!detail) {
+            throw new ErrorHandler(404, 'Dữ Liệu Không Tồn Tại.');
+        }
+        req.detailInfo = detail;
+        next();
+    } catch (error) {
+        next(error);
     }
-  } catch (error) {
-    res.status(500).send(error);
-  }
+};
+const checkExistDeletedList = (Model) => async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const deletedUser = await Model.findByPk(id, {
+            paranoid: false,
+        });
+        if (!deletedUser) {
+            throw new ErrorHandler(404, 'Dữ Liệu Không Tồn Tại.');
+        }
+        next();
+    } catch (error) {
+        next(error);
+    }
 };
 // const checkExistEmail = (Model) => async (req, res, next) => {
 //   try {
@@ -34,5 +47,6 @@ const checkExist = (Model) => async (req, res, next) => {
 //   }
 // };
 module.exports = {
-  checkExist,
+    checkExist,
+    checkExistDeletedList,
 };

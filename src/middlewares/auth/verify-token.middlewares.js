@@ -1,40 +1,40 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
+const { ErrorHandler } = require('../../helpers/error');
+const { SECRET_KEY } = require('../../utils/configs');
 
 // kiểm tra người dùng có đăng nhập hay chưa
 const authenticate = (req, res, next) => {
-  const token = req.header("token");
-  try {
-    const secretKey = "nodejs-sang-01";
-    const decode = jwt.verify(token, secretKey);
-    req.user = decode;
-    console.log("pass-authenticate");
-
-    next();
-  } catch (error) {
-    res.status(401).send({
-      message: "Bạn Chưa Đăng Nhập",
-    });
-  }
+    const token = req.header('token');
+    try {
+        const secretKey = SECRET_KEY;
+        const decode = jwt.verify(token, secretKey);
+        req.user = decode;
+        console.log('pass authenticate');
+        next();
+    } catch (error) {
+        throw new ErrorHandler(401, 'Bạn Chưa Đăng Nhập');
+    }
 };
 
 // phân quyền người dùng
 const authorize = (arrayRole) => (req, res, next) => {
-  try {
-    const { user } = req;
-    if (arrayRole.includes(user.role)) {
-      console.log("pass-authorize");
-      next();
-    } else {
-      res.status(403).send({
-        message: "Bạn không được phân quyền chức năng này",
-      });
+    try {
+        const { user } = req;
+        if (arrayRole.includes(user.role)) {
+            console.log('pass authorize');
+            next();
+        } else {
+            throw new ErrorHandler(
+                403,
+                'Bạn không được phân quyền chức năng này'
+            );
+        }
+    } catch (error) {
+        next(ErrorHandler(500, 'Lỗi Máy Chủ'));
     }
-  } catch (error) {
-    res.status(500).send(error);
-  }
 };
 
 module.exports = {
-  authenticate,
-  authorize,
+    authenticate,
+    authorize,
 };

@@ -1,6 +1,7 @@
 const { User } = require('../models');
 const bcryptjs = require('bcryptjs');
 const { generateToken } = require('../utils/token.utils');
+const { ErrorHandler } = require('../helpers/error');
 class AuthController {
     signIn = async (req, res) => {
         try {
@@ -43,6 +44,26 @@ class AuthController {
             }
         } catch (error) {
             res.status(500).send(error);
+        }
+    };
+    signUp = async (req, res, next) => {
+        try {
+            const { name, email, password, phone, role } = req.body;
+            if (role !== 'client') {
+                throw new ErrorHandler(400, 'Bạn không được cấp quyền này');
+            }
+            const salt = bcryptjs.genSaltSync(10);
+            const hashPassword = bcryptjs.hashSync(password, salt);
+            await User.create({
+                name,
+                email,
+                password: hashPassword,
+                phone,
+                role: 'client',
+            });
+            res.status(200).json({ message: 'Tạo Tài Khoản Thành Công' });
+        } catch (error) {
+            next(error);
         }
     };
 }

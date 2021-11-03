@@ -9,6 +9,7 @@ const {
 } = require('../middlewares/upload/upload-image.middlewares');
 const {
     checkExist,
+    checkExistDeletedList,
 } = require('../middlewares/validations/check-exist.middlewares');
 const { Movie } = require('../models');
 
@@ -16,6 +17,7 @@ const { Movie } = require('../models');
  * http://localhost:9000/api/v1/movies
  */
 const movieRouter = express.Router();
+
 movieRouter.post(
     '/add-new-movie',
     authenticate,
@@ -23,9 +25,19 @@ movieRouter.post(
     uploadImageSingle('poster'),
     movieController.addNew
 );
+movieRouter.post(
+    '/add-relation-movie-cinema',
+    authenticate,
+    authorize(['admin', 'superadmin']),
+    movieController.addCinemaToMovie
+);
 movieRouter.get('/get-all-movie', movieController.getAll);
-
-movieRouter.get('/get-info-movie/:id', movieController.getInfo);
+movieRouter.get('/get-deleted-list', movieController.getDeletedList);
+movieRouter.get(
+    '/get-info-movie/:id',
+    checkExist(Movie),
+    movieController.getInfo
+);
 
 movieRouter.put(
     '/update-movie/:id',
@@ -36,12 +48,27 @@ movieRouter.put(
     movieController.update
 );
 movieRouter.delete(
-    '/delete-movie/:id',
+    '/soft-delete/:id',
     authenticate,
     authorize(['admin', 'superadmin']),
     checkExist(Movie),
-    movieController.delete
+    movieController.softDelete
 );
+movieRouter.get(
+    '/restore-deleted-movie/:id',
+    authenticate,
+    authorize(['admin', 'superadmin']),
+    checkExistDeletedList(Movie),
+    movieController.restoreMovie
+);
+movieRouter.delete(
+    '/force-delete/:id',
+    authenticate,
+    authorize(['admin', 'superadmin']),
+    checkExistDeletedList(Movie),
+    movieController.forceDelete
+);
+
 module.exports = {
     movieRouter,
 };

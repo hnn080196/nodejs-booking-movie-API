@@ -1,23 +1,24 @@
 'use strict';
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('Cinemas', {
+        await queryInterface.createTable('TheaterUnits', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-
-            cinemaName: {
+            theaterId: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Theaters',
+                    key: 'id',
+                },
+            },
+            theaterUnitName: {
                 type: Sequelize.STRING,
             },
-            slug: {
-                type: Sequelize.STRING,
-            },
-            cinemaLogo: {
-                type: Sequelize.STRING,
-            },
+            slug: { type: Sequelize.STRING },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,
@@ -33,6 +34,6 @@ module.exports = {
         });
     },
     down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('Cinemas');
+        await queryInterface.dropTable('TheaterUnits');
     },
 };
