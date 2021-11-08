@@ -12,61 +12,62 @@ const {
     checkExist,
     checkExistDeletedList,
 } = require('../middlewares/validations/check-exist.middlewares');
+const { asyncMiddleware } = require('../utils/asyncMiddleware');
+
 const theaterRouter = express.Router();
 // 1
-theaterRouter.get('/get-all', theaterController.getAll);
+theaterRouter.get('/get-all', asyncMiddleware(theaterController.getAll));
 theaterRouter.get(
     '/get-theater-by-cinema/:cinemaSlug',
-    theaterController.getTheaterByCinema
+    asyncMiddleware(theaterController.getTheaterByCinema)
 );
 theaterRouter.get(
     '/get-deleted-list',
     authenticate,
     authorize(['superadmin']),
-    theaterController.getDeletedList
+    asyncMiddleware(theaterController.getDeletedList)
 );
 
 theaterRouter.get(
     '/get-info/:id',
     authenticate,
-    authorize(['superadmin']),
     checkExist(Theater),
-    theaterController.getInfo
+    asyncMiddleware(theaterController.getInfo)
 );
 
 theaterRouter.post(
     '/add-new/:cinemaSlug',
     authenticate,
-    authorize(['superadmin']),
-    theaterController.addNew
+    authorize(['admin', 'superadmin']),
+    asyncMiddleware(theaterController.addNew)
 );
 theaterRouter.put(
     '/update/:id',
     authenticate,
-    authorize(['superadmin']),
+    authorize(['admin', 'superadmin']),
     checkExist(Theater),
-    theaterController.update
+    asyncMiddleware(theaterController.update)
 );
 theaterRouter.delete(
     '/soft-delete/:id',
     authenticate,
-    authorize(['superadmin']),
+    authorize(['admin', 'superadmin']),
     checkExist(Theater),
-    theaterController.softDelete
+    asyncMiddleware(theaterController.softDelete)
 );
 theaterRouter.get(
     '/restore/:id',
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(Theater),
-    theaterController.restore
+    asyncMiddleware(theaterController.restore)
 );
 
 theaterRouter.delete(
     '/force-delete/:id',
     authenticate,
-    authorize(['admin', 'superadmin']),
+    authorize(['superadmin']),
     checkExistDeletedList(Theater),
-    theaterController.forceDelete
+    asyncMiddleware(theaterController.forceDelete)
 );
 module.exports = { theaterRouter };

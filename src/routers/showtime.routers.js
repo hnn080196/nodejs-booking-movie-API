@@ -9,31 +9,36 @@ const {
     checkExist,
     checkExistDeletedList,
 } = require('../middlewares/validations/check-exist.middlewares');
+const { asyncMiddleware } = require('../utils/asyncMiddleware');
 const showtimeRouter = express.Router();
 // 1
-showtimeRouter.get('/get-all', authenticate, showtimeController.getAll);
+showtimeRouter.get(
+    '/get-all',
+    authenticate,
+    asyncMiddleware(showtimeController.getAll)
+);
 showtimeRouter.get(
     '/get-showtime-by-movie/:movieId',
     authenticate,
-    showtimeController.getShowtimeByMovieId
+    asyncMiddleware(showtimeController.getShowtimeByMovieId)
 );
 showtimeRouter.get(
     '/get-showtime-by-cinema/:cinemaSlug',
     authenticate,
-    showtimeController.getShowtimeByCinema
+    asyncMiddleware(showtimeController.getShowtimeByCinema)
 );
 showtimeRouter.get(
     '/get-seat-list-by-showtime/:id',
     authenticate,
     checkExist(Showtime),
-    showtimeController.getSeatListByShowtime
+    asyncMiddleware(showtimeController.getSeatListByShowtime)
 );
 showtimeRouter.get(
     '/get-deleted-list',
     authenticate,
     authorize(['admin', 'superadmin']),
 
-    showtimeController.getDeletedList
+    asyncMiddleware(showtimeController.getDeletedList)
 );
 
 showtimeRouter.get(
@@ -41,22 +46,26 @@ showtimeRouter.get(
     authenticate,
     authorize(['admin', 'superadmin']),
     checkExist(Showtime),
-    showtimeController.getInfo
+    asyncMiddleware(showtimeController.getInfo)
 );
-showtimeRouter.post('/add-new', authenticate, showtimeController.addNew);
+showtimeRouter.post(
+    '/add-new',
+    authenticate,
+    asyncMiddleware(showtimeController.addNew)
+);
 showtimeRouter.delete(
     '/soft-delete/:id',
     authenticate,
     authorize(['admin', 'superadmin']),
     checkExist(Showtime),
-    showtimeController.softDelete
+    asyncMiddleware(showtimeController.softDelete)
 );
 showtimeRouter.get(
     '/restore/:id',
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(Showtime),
-    showtimeController.restore
+    asyncMiddleware(showtimeController.restore)
 );
 
 showtimeRouter.delete(
@@ -64,6 +73,6 @@ showtimeRouter.delete(
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(Showtime),
-    showtimeController.forceDelete
+    asyncMiddleware(showtimeController.forceDelete)
 );
 module.exports = { showtimeRouter };

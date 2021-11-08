@@ -8,8 +8,8 @@ const authenticate = (req, res, next) => {
     try {
         const secretKey = SECRET_KEY;
         const decode = jwt.verify(token, secretKey);
+        console.log(decode);
         req.user = decode;
-        console.log('pass authenticate');
         next();
     } catch (error) {
         throw new ErrorHandler(401, 'Bạn Chưa Đăng Nhập');

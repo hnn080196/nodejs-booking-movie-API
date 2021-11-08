@@ -16,6 +16,7 @@ const {
     checkExistDeletedList,
 } = require('../middlewares/validations/check-exist.middlewares');
 const { User } = require('../models');
+const { asyncMiddleware } = require('../utils/asyncMiddleware');
 
 const userRouter = express.Router();
 //---------Upload avatar--------
@@ -23,7 +24,7 @@ userRouter.post(
     '/upload-avatar',
     authenticate,
     uploadImageSingle('avatar'),
-    userController.uploadAvatar
+    asyncMiddleware(userController.uploadAvatar)
 );
 //--------Get Deleted User List--------
 userRouter.get(
@@ -31,7 +32,7 @@ userRouter.get(
     logsUser,
     authenticate,
     authorize(['admin', 'superadmin']),
-    userController.getDeleteList
+    asyncMiddleware(userController.getDeleteList)
 );
 
 //---------Get All User --------
@@ -40,23 +41,39 @@ userRouter.get(
     logsUser,
     authenticate,
     authorize(['admin', 'superadmin']),
-    userController.getAll
+    asyncMiddleware(userController.getAll)
+);
+userRouter.get(
+    '/get-all-pagination',
+    logsUser,
+    authenticate,
+    authorize(['admin', 'superadmin']),
+    asyncMiddleware(userController.getAllPagination)
 );
 //---------get detail user for higher level from admin  --------
 //
 userRouter.get(
     '/get-info/:id',
     authenticate,
-    authorize(['admin', 'superadmin']),
+    authorize(['superadmin']),
     checkExist(User),
-    userController.getInfo
+    asyncMiddleware(userController.getInfo)
 );
 
-//---------Add new use for higler level from Admin --------
-userRouter.post('/add-new', userController.addNew);
+//---------Add new use for higher level from Admin --------
+userRouter.post(
+    '/add-new',
+    authenticate,
+    authorize(['admin', 'superadmin']),
+    asyncMiddleware(userController.addNew)
+);
 //---------update use for client --------
 // ---- with value of role = 'client' is fixed
-userRouter.put('/update/:id', authenticate, userController.updateForClient);
+userRouter.put(
+    '/update/:id',
+    authenticate,
+    asyncMiddleware(userController.update)
+);
 //---------update use for superadmin  --------
 // ---- can change value of role under level of role =superadmin
 userRouter.put(
@@ -64,7 +81,7 @@ userRouter.put(
     authenticate,
     authorize(['superadmin']),
     checkExist(User),
-    userController.updateForSuperadmin
+    asyncMiddleware(userController.updateForSuperadmin)
 );
 //---------soft delete authorize include 'admin' and 'superadmin' --------
 userRouter.delete(
@@ -72,7 +89,7 @@ userRouter.delete(
     authenticate,
     authorize(['admin', 'superadmin']),
     checkExist(User),
-    userController.softDelete
+    asyncMiddleware(userController.softDelete)
 );
 //---------restore deleted user just authorize for role='superadmin' --------
 // check exist in deleted user list
@@ -81,7 +98,7 @@ userRouter.get(
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(User),
-    userController.restoreUser
+    asyncMiddleware(userController.restoreUser)
 );
 //---------force deleted user just authorize for role='superadmin' --------
 // check exist in deleted user list
@@ -90,7 +107,7 @@ userRouter.delete(
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(User),
-    userController.forceDelete
+    asyncMiddleware(userController.forceDelete)
 );
 //---------force deleted user just authorize for role='superadmin' --------
 // userRouter.get(

@@ -12,19 +12,21 @@ const {
     checkExist,
     checkExistDeletedList,
 } = require('../middlewares/validations/check-exist.middlewares');
+const { asyncMiddleware } = require('../utils/asyncMiddleware');
+
 const theaterUnitRouter = express.Router();
 // 1
 theaterUnitRouter.get(
     '/get-all',
     authenticate,
     authorize(['superadmin']),
-    theaterUnitController.getAll
+    asyncMiddleware(theaterUnitController.getAll)
 );
 theaterUnitRouter.get(
     '/get-deleted-list',
     authenticate,
     authorize(['superadmin']),
-    theaterUnitController.getDeletedList
+    asyncMiddleware(theaterUnitController.getDeletedList)
 );
 
 theaterUnitRouter.get(
@@ -32,35 +34,35 @@ theaterUnitRouter.get(
     authenticate,
     authorize(['superadmin']),
     checkExist(TheaterUnit),
-    theaterUnitController.getInfo
+    asyncMiddleware(theaterUnitController.getInfo)
 );
 
 theaterUnitRouter.post(
     '/add-new/:theaterSlug',
     authenticate,
     authorize(['superadmin']),
-    theaterUnitController.addNew
+    asyncMiddleware(theaterUnitController.addNew)
 );
 theaterUnitRouter.put(
     '/update/:id',
     authenticate,
     authorize(['superadmin']),
     checkExist(TheaterUnit),
-    theaterUnitController.update
+    asyncMiddleware(theaterUnitController.update)
 );
 theaterUnitRouter.delete(
     '/soft-delete/:id',
     authenticate,
     authorize(['superadmin']),
     checkExist(TheaterUnit),
-    theaterUnitController.softDelete
+    asyncMiddleware(theaterUnitController.softDelete)
 );
 theaterUnitRouter.get(
     '/restore/:id',
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(TheaterUnit),
-    theaterUnitController.restore
+    asyncMiddleware(theaterUnitController.restore)
 );
 
 theaterUnitRouter.delete(
@@ -68,6 +70,6 @@ theaterUnitRouter.delete(
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(TheaterUnit),
-    theaterUnitController.forceDelete
+    asyncMiddleware(theaterUnitController.forceDelete)
 );
 module.exports = { theaterUnitRouter };

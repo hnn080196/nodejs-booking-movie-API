@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
             seatType: DataTypes.STRING,
             price: DataTypes.STRING,
             theaterUnitName: DataTypes.STRING,
-            theaterName: DataTypes.STRING,  
+            theaterName: DataTypes.STRING,
             address: DataTypes.STRING,
             bookingUser: DataTypes.STRING,
         },

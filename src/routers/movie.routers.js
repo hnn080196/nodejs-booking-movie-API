@@ -11,6 +11,8 @@ const {
     checkExist,
     checkExistDeletedList,
 } = require('../middlewares/validations/check-exist.middlewares');
+const { asyncMiddleware } = require('../utils/asyncMiddleware');
+
 const { Movie } = require('../models');
 
 /**
@@ -23,20 +25,29 @@ movieRouter.post(
     authenticate,
     authorize(['admin', 'superadmin']),
     uploadImageSingle('poster'),
-    movieController.addNew
+    asyncMiddleware(movieController.addNew)
 );
 movieRouter.post(
     '/add-relation-movie-cinema',
     authenticate,
     authorize(['admin', 'superadmin']),
-    movieController.addCinemaToMovie
+    asyncMiddleware(movieController.addCinemaToMovie)
 );
-movieRouter.get('/get-all-movie', movieController.getAll);
-movieRouter.get('/get-deleted-list', movieController.getDeletedList);
+movieRouter.get('/get-all-movie', asyncMiddleware(movieController.getAll));
+movieRouter.get(
+    '/get-movie-pagination',
+    asyncMiddleware(movieController.getMoviePagination)
+);
+movieRouter.get(
+    '/get-deleted-list',
+    authenticate,
+    authorize(['admin', 'superadmin']),
+    asyncMiddleware(movieController.getDeletedList)
+);
 movieRouter.get(
     '/get-info-movie/:id',
     checkExist(Movie),
-    movieController.getInfo
+    asyncMiddleware(movieController.getInfo)
 );
 
 movieRouter.put(
@@ -45,28 +56,28 @@ movieRouter.put(
     authorize(['admin', 'superadmin']),
     checkExist(Movie),
     uploadImageSingle('poster'),
-    movieController.update
+    asyncMiddleware(movieController.update)
 );
 movieRouter.delete(
     '/soft-delete/:id',
     authenticate,
     authorize(['admin', 'superadmin']),
     checkExist(Movie),
-    movieController.softDelete
+    asyncMiddleware(movieController.softDelete)
 );
 movieRouter.get(
     '/restore-deleted-movie/:id',
     authenticate,
-    authorize(['admin', 'superadmin']),
+    authorize(['superadmin']),
     checkExistDeletedList(Movie),
-    movieController.restoreMovie
+    asyncMiddleware(movieController.restoreMovie)
 );
 movieRouter.delete(
     '/force-delete/:id',
     authenticate,
-    authorize(['admin', 'superadmin']),
+    authorize(['superadmin']),
     checkExistDeletedList(Movie),
-    movieController.forceDelete
+    asyncMiddleware(movieController.forceDelete)
 );
 
 module.exports = {

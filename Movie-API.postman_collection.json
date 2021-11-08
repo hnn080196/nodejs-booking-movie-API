@@ -1,0 +1,2457 @@
+{
+	"info": {
+		"_postman_id": "07573757-de4d-4d84-acaa-2857e5e5b987",
+		"name": "Movie-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get-all-user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "token superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/get-all-user?_search=&keyWord=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"get-all-user"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": ""
+								},
+								{
+									"key": "keyWord",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-pagination",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "token superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/get-all-pagination?_search=&keyWord=&page=2&perPage=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"get-all-pagination"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": ""
+								},
+								{
+									"key": "keyWord",
+									"value": ""
+								},
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "perPage",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-delete-user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "token super admin",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/get-delete-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"get-delete-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/get-info/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"get-info",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4",
+									"description": "Nhập Id mã user cần xem thông"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore-user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/restore-deleted-user/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"restore-deleted-user",
+								":id"
+							],
+							"query": [
+								{
+									"key": "a",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Nhập vào Id tài khoản cần restore"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "for superadmin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"0357639673\",\r\n    \"role\": \"client\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/update/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4",
+									"description": "ID tài khoản cần update"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update for admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nguyễn Thị Hồng Nhung\",\r\n    \"role\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/update-for-admin/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"update-for-admin",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5",
+									"description": "ID tài khoản cần update"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Nguyễn Ngọc Hòa\",\r\n    \"email\" : \"ngochoa.bk14_admin@gmail.com\",\r\n    \"password\" : \"123456789\",\r\n    \"phone\" : \"0357639673\",\r\n    \"role\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/add-new",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"add-new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/soft-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"soft-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5",
+									"description": "ID tài khoản cần xóa mềm"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "force-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/force-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"force-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "ID tài khoản cần xóa vĩnh viễn "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload-avatar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hLmJrMTRfYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM1ODM0Nzk2LCJleHAiOjE2NDM2MTA3OTZ9.AdtUAYc1wH14aM-pxnLDJT9T8pLEtxuau68jr77CmIU",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/Dell/OneDrive/Desktop/Her/vi-01.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users/upload-avatar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"upload-avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie-by-user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJuZ29jaG9hYmsxNDIwMjFAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjM0MTg3NDU5LCJleHAiOjE2NDE5NjM0NTl9.XMR5nzIfJdxpDzsb1KiJ97MYCJ4_oHjiInmwoov0WwE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/movie-by-user/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"movie-by-user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "sign-in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"ngochoa.bk14.client@gmail.com\",\r\n    \"password\" : \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/sign-in",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"name\" : \"Nguyễn Ngọc Hòa\",\r\n    \"email\" : \"ngochoa.bk14.client_test02@gmail.com\",\r\n    \"password\" : \"123456789\",\r\n    \"phone\" : 123457891123,\r\n    \"role\" : \"client\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/sign-up",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ticket",
+			"item": [
+				{
+					"name": "booking-ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n  \"showtimeId\": 4,\r\n  \"seatList\": [\r\n    {\r\n      \"seatId\": 243\r\n    }, {\r\n      \"seatId\": 244\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ticket/booking-ticket",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ticket",
+								"booking-ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user ticket",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n  \"showtimeId\": 4,\r\n  \"seatList\": [\r\n    {\r\n      \"seatId\": 243\r\n    }, {\r\n      \"seatId\": 244\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ticket/ticket-by-user/:userId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ticket",
+								"ticket-by-user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movie",
+			"item": [
+				{
+					"name": "get-all-movie-with-search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movies/get-all-movie",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"get-all-movie"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "toy-story-4-2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movie pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movies/get-movie-pagination?keyWord=toy-story&page=2&perPage=3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"get-movie-pagination"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "toy-story"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "perPage",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-deleted-list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movies/get-deleted-list?_search&keyWord=toy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"get-deleted-list"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null
+								},
+								{
+									"key": "keyWord",
+									"value": "toy",
+									"description": "Từ Khóa Tìm Kiếm"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-new-movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "poster",
+									"type": "file",
+									"src": "/C:/Users/Dell/OneDrive/Desktop/demoAPi/Toy_story_4_teaser.jpg"
+								},
+								{
+									"key": "movieName",
+									"value": "Toy Story 1",
+									"type": "text"
+								},
+								{
+									"key": "trailer",
+									"value": "https://youtu.be/wmiIUN-7qhE",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Woody attempts to make Forky, a toy, suffering from existential crisis, realise his importance in the life of Bonnie, their owner. However, things become difficult when Gabby Gabby enters their lives.",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2019-06-19",
+									"type": "text"
+								},
+								{
+									"key": "rating",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/movies/add-new-movie",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"add-new-movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-relation-movie-cinema",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU4MzQ2OTYsImV4cCI6MTY0MzYxMDY5Nn0.H1WWTkmNmncnzyq8cohO-KCdHBbKBUMH6VpOX_inzT4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movieId\" : 1,\r\n    \"cinemaId\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/movies/add-relation-movie-cinema",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"add-relation-movie-cinema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-info-movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movies/get-info-movie/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"get-info-movie",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore-deleted-movie",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJuZ29jaG9hYmsxNDIwMjEyMkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2MzQxOTQyNDIsImV4cCI6MTY0MTk3MDI0Mn0.Brhb1ScH6Fgja7OX56VBhmOKF591tlbjSJq3c-enHlY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/movies/restore-deleted-movie/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"restore-deleted-movie",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-movie",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJuZ29jaG9hYmsxNDIwMjEyMkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2MzQxOTQyNDIsImV4cCI6MTY0MTk3MDI0Mn0.Brhb1ScH6Fgja7OX56VBhmOKF591tlbjSJq3c-enHlY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rating",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "poster",
+									"type": "file",
+									"src": "/C:/Users/Dell/OneDrive/Desktop/Her/vi-02.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/movies/update-movie/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"update-movie",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJuZ29jaG9hYmsxNDIwMjEyMkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2MzQxOTQyNDIsImV4cCI6MTY0MTk3MDI0Mn0.Brhb1ScH6Fgja7OX56VBhmOKF591tlbjSJq3c-enHlY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/movies/soft-delete/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"soft-delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "force-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJuZ29jaG9hYmsxNDIwMjEyMkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2MzQxOTQyNDIsImV4cCI6MTY0MTk3MDI0Mn0.Brhb1ScH6Fgja7OX56VBhmOKF591tlbjSJq3c-enHlY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/movies/force-delete/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"force-delete",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cinema",
+			"item": [
+				{
+					"name": "Get All cinema",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/cinemas/get-all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cinemas",
+								"get-all"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "BHD",
+									"description": "Từ Khóa Search",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get deleted list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/cinemas/get-deleted-list?_search&keyWord=toy",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cinemas",
+								"get-deleted-list"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null
+								},
+								{
+									"key": "keyWord",
+									"value": "toy",
+									"description": "Từ Khóa Tìm Kiếm"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info cinema",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/cinemas/get-info/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cinemas",
+								"get-info",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore deleted cinema",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/cinemas/restore/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cinemas",
+								"restore",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new cinema",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cinemaName",
+									"value": "Galaxy",
+									"type": "text"
+								},
+								{
+									"key": "cinemaLogo",
+									"type": "file",
+									"src": "/C:/Users/Dell/OneDrive/Desktop/demoAPi/Toy_story_4_teaser.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/cinemas/add-new",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cinemas",
+								"add-new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cinemaName",
+									"value": "BHDStar12",
+									"type": "text"
+								},
+								{
+									"key": "cinemaLogo",
+									"type": "file",
+									"src": "/C:/Users/Dell/OneDrive/Desktop/demoAPi/Toy_story_4_teaser.jpg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/cinemas/update/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cinemas",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for client",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/cinemas/soft-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cinemas",
+								"soft-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "ID Cinema Cần Xóa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "force delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for client",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/cinemas/force-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cinemas",
+								"force-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "21",
+									"description": "ID Cinema Cần Xóa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "theater",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "theaterName",
+									"value": "BHDStar Hai Bà Trưng",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/theaters/get-all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"get-all"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Search",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-theater-by-cinema",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "theaterName",
+									"value": "BHDStar Hai Bà Trưng",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/theaters/get-theater-by-cinema/:cinemaSlug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"get-theater-by-cinema",
+								":cinemaSlug"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "Hai",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "cinemaSlug",
+									"value": "bhdstar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get deleted list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaters/get-deleted-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"get-deleted-list"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Tìm Kiếm",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaters/get-info/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"get-info",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore deleted",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaters/restore/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"restore",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"theaterName\": \"BHDStar Quận 10\",\r\n    \"address\" : \" Quận 10 TPHCM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/theaters/add-new/:cinemaSlug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"add-new",
+								":cinemaSlug"
+							],
+							"variable": [
+								{
+									"key": "cinemaSlug",
+									"value": "bhdstar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"theaterName\": \"BHDStar Hai Bà Trưng\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/theaters/update/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for client",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaters/soft-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"soft-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "20",
+									"description": "ID Theater Cần Xóa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "force delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for client",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaters/force-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaters",
+								"force-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "21",
+									"description": "ID Cinema Cần Xóa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "theater unit",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "theaterName",
+									"value": "BHDStar Hai Bà Trưng",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/theaterUnit/get-all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaterUnit",
+								"get-all"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Search",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get deleted list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaterUnit/get-deleted-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaterUnit",
+								"get-deleted-list"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Tìm Kiếm",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaterUnit/get-info/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaterUnit",
+								"get-info",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore deleted",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaterUnit/restore/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaterUnit",
+								"restore",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"theaterUnitName\": \"Rạp 4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/theaterUnit/add-new/:theaterSlug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaterUnit",
+								"add-new",
+								":theaterSlug"
+							],
+							"variable": [
+								{
+									"key": "theaterSlug",
+									"value": "bhdstar-hai-ba-trung"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"theaterUnitName\": \"Rạp 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/theaterUnit/update/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaterUnit",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for client",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaterUnit/soft-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaterUnit",
+								"soft-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4",
+									"description": "ID Cần Xóa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "force delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for client",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/theaterUnit/force-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"theaterUnit",
+								"force-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "ID Cần Xóa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "showtime",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "theaterName",
+									"value": "BHDStar Hai Bà Trưng",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/showtime/get-all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"get-all"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Search",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get showtim by movie",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "theaterName",
+									"value": "BHDStar Hai Bà Trưng",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/showtime/get-showtime-by-movie/:movieId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"get-showtime-by-movie",
+								":movieId"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Search",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "movieId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get showtim by cinema",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "theaterName",
+									"value": "BHDStar Hai Bà Trưng",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/showtime/get-showtime-by-cinema/:cinemaSlug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"get-showtime-by-cinema",
+								":cinemaSlug"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Search",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "cinemaSlug",
+									"value": "bhdstar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get seat list by showtime id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/showtime/get-seat-list-by-showtime/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"get-seat-list-by-showtime",
+								":id"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Search",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get deleted list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/showtime/get-deleted-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"get-deleted-list"
+							],
+							"query": [
+								{
+									"key": "_search",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "keyWord",
+									"value": "",
+									"description": "Từ Khóa Tìm Kiếm",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/showtime/get-info/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"get-info",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore deleted",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/showtime/restore/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"restore",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movieId\": 1,\r\n    \"theaterUnitId\" : 4,\r\n    \"showtime\":\"2021-10-12T10:30:00\",\r\n    \"price\": 80000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/showtime/add-new",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"add-new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for client",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/showtime/soft-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"soft-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7",
+									"description": "ID Cần Xóa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "force delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJuZ29jaG9hLmJrMTRAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE2MzU0MDgwMDAsImV4cCI6MTY0MzE4NDAwMH0.F9jDjp7qNkZJRG4tuWHlph2LTXpOFVygarhaAiaBra4",
+								"description": "for superadmin",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for admin",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "token",
+								"value": "",
+								"description": "for client",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/showtime/force-delete/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"showtime",
+								"force-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7",
+									"description": "ID Cần Xóa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

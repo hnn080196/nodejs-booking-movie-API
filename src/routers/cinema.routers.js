@@ -12,6 +12,7 @@ const {
     checkExist,
     checkExistDeletedList,
 } = require('../middlewares/validations/check-exist.middlewares');
+const { asyncMiddleware } = require('../utils/asyncMiddleware');
 const cinemaRouter = express.Router();
 // 1
 
@@ -20,38 +21,42 @@ cinemaRouter.post(
     authenticate,
     authorize(['admin', 'superadmin']),
     uploadImageSingle('cinemaLogo'),
-    cinemaController.addNewCinema
+    asyncMiddleware(cinemaController.addNewCinema)
 );
-cinemaRouter.get('/get-all', cinemaController.getAll);
+cinemaRouter.get('/get-all', asyncMiddleware(cinemaController.getAll));
 cinemaRouter.get(
     '/get-deleted-list',
     authenticate,
     authorize(['superadmin']),
-    cinemaController.getDeletedCinema
+    asyncMiddleware(cinemaController.getDeletedCinema)
 );
 
-cinemaRouter.get('/get-info/:id', checkExist(Cinema), cinemaController.getInfo);
+cinemaRouter.get(
+    '/get-info/:id',
+    checkExist(Cinema),
+    asyncMiddleware(cinemaController.getInfo)
+);
 
 cinemaRouter.put(
     '/update/:id',
     authenticate,
     authorize(['admin', 'superadmin']),
     uploadImageSingle('cinemaLogo'),
-    cinemaController.update
+    asyncMiddleware(cinemaController.update)
 );
 cinemaRouter.delete(
     '/soft-delete/:id',
     authenticate,
     authorize(['superadmin']),
     checkExist(Cinema),
-    cinemaController.softDelete
+    asyncMiddleware(cinemaController.softDelete)
 );
 cinemaRouter.get(
     '/restore/:id',
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(Cinema),
-    cinemaController.restoreCinema
+    asyncMiddleware(cinemaController.restoreCinema)
 );
 
 cinemaRouter.delete(
@@ -59,7 +64,7 @@ cinemaRouter.delete(
     authenticate,
     authorize(['superadmin']),
     checkExistDeletedList(Cinema),
-    cinemaController.forceDelete
+    asyncMiddleware(cinemaController.forceDelete)
 );
 
 module.exports = cinemaRouter;

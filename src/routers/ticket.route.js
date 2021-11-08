@@ -7,19 +7,19 @@ const {
 const {
     checkExist,
 } = require('../middlewares/validations/check-exist.middlewares');
-
+const { asyncMiddleware } = require('../utils/asyncMiddleware');
 const ticketRouter = express.Router();
 
 ticketRouter.get(
     '/ticket-by-user/:userId',
     authenticate,
     checkExist(User),
-    ticketController.getTicketByUser
+    asyncMiddleware(ticketController.getTicketByUser)
 );
 ticketRouter.post(
     '/booking-ticket',
     authenticate,
-    ticketController.bookingTicket
+    asyncMiddleware(ticketController.bookingTicket)
 );
 
 module.exports = {
