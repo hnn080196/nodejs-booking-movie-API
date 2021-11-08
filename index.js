@@ -3,6 +3,7 @@ const path = require('path');
 const { handleError } = require('./src/helpers/error');
 const { rootRouter } = require('./src/routers/root.routers');
 const app = express();
+require('dotenv').config();
 
 // static file
 const publicPathDirectory = path.join(__dirname, './public');
